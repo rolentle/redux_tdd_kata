@@ -1,5 +1,5 @@
 import { createStore } from 'redux';
-import Caculator, { ADDITION } from '../src/index';
+import Caculator, { ADDITION, SUBTRACTION } from '../src/index';
 
 describe("Caculator", () => {
   it("initalizes at 0", () => {
@@ -21,5 +21,12 @@ describe("Caculator", () => {
     store.dispatch({type: ADDITION, payload: 1 });
     const state = store.getState();
     expect(state).toBe(2);
+  });
+
+  it("can substract 0 - 1 = -1", () => {
+    const store = createStore(Caculator);
+    store.dispatch({type: SUBTRACTION, payload: 1 });
+    const state = store.getState();
+    expect(state).toBe(-1);
   });
 });
