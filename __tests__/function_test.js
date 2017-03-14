@@ -1,5 +1,5 @@
 import { createStore } from 'redux';
-import Caculator, { ADDITION, SUBTRACTION } from '../src/index';
+import Caculator, { ADDITION, SUBTRACTION, MULTIPLICATION, DIVISION } from '../src/index';
 
 describe("Caculator", () => {
   it("initalizes at 0", () => {
@@ -28,5 +28,19 @@ describe("Caculator", () => {
     store.dispatch({type: SUBTRACTION, payload: 1 });
     const state = store.getState();
     expect(state).toBe(-1);
+  });
+
+  it("can multiple  2 * 2 = 4", () => {
+    const store = createStore(Caculator, 2);
+    store.dispatch({type: MULTIPLICATION, payload: 2 });
+    const state = store.getState();
+    expect(state).toBe(4);
+  });
+
+  it("can divide  2 / 2 = 1", () => {
+    const store = createStore(Caculator, 2);
+    store.dispatch({type: DIVISION, payload: 2 });
+    const state = store.getState();
+    expect(state).toBe(1);
   });
 });
