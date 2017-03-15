@@ -1,5 +1,5 @@
 import { createStore } from 'redux';
-import Calculator, { ADDITION, SUBTRACTION, MULTIPLICATION, DIVISION } from '../src/index';
+import Calculator, { ADDITION, SUBTRACTION, MULTIPLICATION, DIVISION } from '../src/calculator';
 
 describe("Calculator", () => {
   it("initalizes at 0", () => {
